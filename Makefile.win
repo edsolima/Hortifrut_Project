@@ -1,0 +1,33 @@
+# Project: Program
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = main.o Untitled1.o $(RES)
+LINKOBJ  = main.o Untitled1.o $(RES)
+LIBS =  -L"C:/Program Files/MySQL/MySQL Connector C 6.1/lib" -L"lib" -L"C:/MinGW/lib"  
+INCS =  -I"C:/Program Files/MySQL/MySQL Connector C 6.1/include"  -I"include"  -I"C:/MinGW/bin" 
+CXXINCS =  -I"lib/gcc/mingw32/3.4.2/include"  -I"include/c++/3.4.2/backward"  -I"include/c++/3.4.2/mingw32"  -I"include/c++/3.4.2"  -I"include"  -I"C:/MinGW/bin" 
+BIN  = Program.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before Program.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "Program.exe" $(LIBS)
+
+main.o: main.c
+	$(CPP) -c main.c -o main.o $(CXXFLAGS)
+
+Untitled1.o: Untitled1.cpp
+	$(CPP) -c Untitled1.cpp -o Untitled1.o $(CXXFLAGS)
